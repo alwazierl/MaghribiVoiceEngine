@@ -85,7 +85,7 @@ class MaghribiTtsService : TextToSpeechService() {
                     val end = minOf(offset + chunkSize, pcm.size)
                     val chunk = pcm.copyOfRange(offset, end)
                     val result = callback.audioAvailable(chunk, 0, chunk.size)
-                    if (result != SynthesisCallback.SUCCESS) break
+                    if (result != TextToSpeech.SUCCESS) break
                     offset = end
                 }
                 if (stopped) callback.error() else callback.done()
